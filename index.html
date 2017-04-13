@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Guessing Game</title>
+		<meta charset="utf-8" />
+		<style>
+			body {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="p1">
+			I'm thinking of an object.	
+		</h1>
+		<h1 id="p2" style="display: none">
+			No, it's not a cookie!	
+		</h1>
+		<h1 id="p3" style="display: none">
+			No! It is not a cookie!	
+		</h1>
+		<h1 id="p4" style="display: none">
+			What do you mean, "You give up?!?" It's something to <span style="font-style: italic;">eat</span> that's <span style="font-size: larger;">round</span> and <span style="color: orange;">orange</span>. It's an <span style="color: orange;">orange</span>!!	Of course it's an <span style="color: orange;">ORANGE</span>!!
+		</h1>
+		<h1 id="p5" style="display: none">
+			No you cannot have a cookie!!
+		</h1>
+		
+		<button id = "cookieBtn" onclick="cookieClick()">
+			Is it a cookie?
+		</button>
+		
+		<h2 id="c1">
+			The first clue is that it is something to <span style="font-style: italic;">eat</span>.
+		</h2>
+		<h2 id="c2" style="display: none">
+			The second clue is that it is something <span style="font-size: larger;">round</span>.
+		</h2>
+		<h2 id="c3" style="display: none">
+			The third clue is that the color of this thing is <span style="color: orange;">orange</span>.
+		</h2>
+		
+		<script>
+			var clicks = 0;
+			function cookieClick() 
+			{
+				if (clicks == 0)
+				{
+					document.getElementById("p2").style = "display: block;";
+					document.getElementById("c2").style = "display: block;";
+					clicks++;
+				}
+				else if (clicks == 1)
+				{
+					document.getElementById("c3").style = "display: block;";
+					clicks++;
+				}
+				else if (clicks == 2)
+				{
+					document.getElementById("p3").style = "display: block;";
+					document.getElementById("cookieBtn").innerHTML = "I give up.";
+					clicks++;
+				}
+				else if (clicks == 3)
+				{
+					document.getElementById("p4").style = "display: block;";
+					document.getElementById("cookieBtn").innerHTML = "Can I have a cookie?";
+					clicks++;
+				}
+				else if (clicks == 4)
+				{
+					document.getElementById("p5").style = "display: block;";
+					document.getElementById("cookieBtn").style = "display: none";
+					clicks++;
+				}
+			}
+		</script>
+	</body>
+	
+</html>
